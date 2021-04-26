@@ -60,5 +60,10 @@ h2 {
 .like-dislike {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
+}
+
+meter {
+    width: 100%;
 }
