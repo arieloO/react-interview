@@ -8,7 +8,7 @@ const MovieCard = ({movie}) => {
         <div className="movie-card">
             <h2>{movie.title}</h2>
             <h3>{movie.category}</h3>
-            <div>Likes : {movie.likes}</div>
+            <div>likes : {movie.likes}</div>
             <div>dislikes : {movie.dislikes}</div>
             <meter
                 min="0" max={movie.likes+movie.dislikes}            

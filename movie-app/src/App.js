@@ -12,7 +12,6 @@ const [movies, setMovies] = useState([]);
 
 useEffect(()=> {
   movies$.then(data => setMovies(data))
-  console.log(movies);
 }, [movies])
 
 
@@ -20,11 +19,9 @@ useEffect(()=> {
   return (
     <div className="App">
       <header className="App-header">
-
+        <h1>Movies !</h1>
       </header>
-      <div className="app-wrapper">
         <MovieGrid movies={movies} />
-      </div>
     </div>
   );
 }
