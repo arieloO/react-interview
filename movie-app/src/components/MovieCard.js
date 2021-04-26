@@ -11,7 +11,7 @@ const MovieCard = ({ movie, index, deleteMovie }) => {
                 className="remove-button"
                 onClick={() => deleteMovie(movie.id)}
             >
-                ✖︎
+                delete
             </button>
 
             <LikeDislike
