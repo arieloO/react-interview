@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 
 import MovieCard from "./MovieCard";
 
@@ -8,22 +8,20 @@ import MovieCard from "./MovieCard";
 
 function reducer(state, action) {
   switch (action.type) {
-    case "delete":
+    case "DELETE":
       return state.filter((movie) => movie.id !== action.id);
 
-    case "like":
+    case "LIKE":
       return state.map((movie) => {
-        console.log(movie);
         return movie.id === action.id
-          ? { ...movie, likes: movie.likes++ }
+          ? { ...movie, likes: movie.likes + 1 }
           : movie;
       });
 
-    case "dislike":
+    case "DISLIKE":
       return state.map((movie) => {
-        console.log(movie);
         return movie.id === action.id
-          ? { ...movie, dislikes: movie.dislikes++ }
+          ? { ...movie, dislikes: movie.dislikes + 1 }
           : movie;
       });
 
@@ -36,11 +34,15 @@ const MovieList = ({ movies }) => {
   const [state, dispatch] = useReducer(reducer, movies);
 
   // Delete movie
-  const deleteMovie = (id) => dispatch({ type: "delete", id: id });
+  const deleteMovie = (id) => dispatch({ type: "DELETE", id: id });
 
   // Like
-  const like = (id) => dispatch({ type: "like", id: id });
-  const dislike = (id) => dispatch({ type: "dislike", id: id });
+  const like = (id) => dispatch({ type: "LIKE", id: id });
+  const dislike = (id) => dispatch({ type: "DISLIKE", id: id });
+
+  useEffect(() => {
+    console.log("MovieList UseEffect");
+  }, [state]);
 
   return (
     <div className="movie-grid">
