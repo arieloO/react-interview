@@ -4,15 +4,16 @@ import MovieCard from "./MovieCard"
 
 
 
-const MovieGrid = () => {
+const MovieGrid = ({movies}) => {
+
+    console.log(movies);
+
     return (
         <div className="movie-grid">
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
+        { movies.map(movie => {
+            return <MovieCard movie={movie} key={movie.id} />
+        }) }
+
         </div>
     )
 }

@@ -23,7 +23,7 @@ useEffect(()=> {
 
       </header>
       <div className="app-wrapper">
-        <MovieGrid />
+        <MovieGrid movies={movies} />
       </div>
     </div>
   );
