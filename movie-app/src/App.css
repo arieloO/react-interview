@@ -16,7 +16,10 @@
   margin-bottom: 12px;
 }
 
+/* MOVIE CARD */
+
 .movie-card {
+  position: relative;
   padding: 12px;
   border: 1px solid black;
   border-radius: 4px;
@@ -24,4 +27,12 @@
 
 h2 {
   margin-top: 0px;
+}
+
+/* REMOVE BUTTON */
+
+.remove-button {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
