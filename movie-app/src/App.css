@@ -1,38 +1,46 @@
 .App {
-  display: flex;
-  flex-direction: column;
-  max-width: 80vw;
-  margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 80vw;
+    margin: 0 auto;
 }
 
 .App-header {
-  text-align: center;
+    text-align: center;
 }
 
 .movie-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 /* MOVIE CARD */
 
 .movie-card {
-  position: relative;
-  padding: 12px;
-  border: 1px solid black;
-  border-radius: 4px;
+    position: relative;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
 }
 
 h2 {
-  margin-top: 0px;
+    margin-top: 0px;
 }
 
 /* REMOVE BUTTON */
 
 .remove-button {
-  position: absolute;
-  top: 0;
-  right: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* LIKE / DISLIKE */
+
+.like-dislike {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
