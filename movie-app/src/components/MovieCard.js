@@ -4,7 +4,7 @@ const MovieCard = ({ movie, index, deleteMovie }) => {
     return (
         <div className="movie-card">
             <div className="card-headings">
-                -m" <h2>{movie.title}</h2>
+                <h2>{movie.title}</h2>
                 <h3>#{movie.category}</h3>
             </div>
             <button

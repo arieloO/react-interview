@@ -13,6 +13,9 @@ const MovieGrid = ({ movies, deleteMovie }) => {
                     />
                 );
             })}
+            <div className="movie-card-fill"></div>
+            <div className="movie-card-fill"></div>
+            <div className="movie-card-fill"></div>
         </div>
     );
 };
