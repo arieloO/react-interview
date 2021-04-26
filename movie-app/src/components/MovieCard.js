@@ -3,10 +3,17 @@
 
 
 
-const MovieCard = () => {
+const MovieCard = ({movie}) => {
     return (
         <div className="movie-card">
-            <h2>Movie Card</h2>
+            <h2>{movie.title}</h2>
+            <h3>{movie.category}</h3>
+            <div>Likes : {movie.likes}</div>
+            <div>dislikes : {movie.dislikes}</div>
+            <meter
+                min="0" max={movie.likes+movie.dislikes}            
+                value={movie.likes}
+            ></meter>
         </div>
     )
 }
