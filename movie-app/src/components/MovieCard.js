@@ -4,8 +4,8 @@ const MovieCard = ({ movie, deleteMovie, like, dislike }) => {
   return (
     <div className="movie-card">
       <div className="card-headings">
+        <span className="category">#{movie.category}</span>
         <h2>{movie.title}</h2>
-        <h3>#{movie.category}</h3>
       </div>
       <button className="remove-button" onClick={() => deleteMovie(movie.id)}>
         delete

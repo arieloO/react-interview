@@ -41,6 +41,13 @@ body {
   padding: 12px;
 }
 
+.category {
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 6px;
+  background-color: rgba(92, 92, 92, 0.555);
+}
+
 /* REMOVE BUTTON */
 
 .remove-button {
