@@ -76,14 +76,15 @@ body {
   top: -8px;
   right: -8px;
   padding: 4px;
+  width: 25px;
   border-radius: 6px;
-  border: 1px solid rgba(203, 56, 55);
+  border: 1px solid rgb(175, 175, 175);
   color: white;
   background-color: rgba(203, 56, 55);
 }
 
 .remove-button:hover {
-  border: 1px solid rgb(175, 175, 175);
+  border: 1px solid rgb(255, 255, 255);
 }
 
 /* LIKE / DISLIKE */

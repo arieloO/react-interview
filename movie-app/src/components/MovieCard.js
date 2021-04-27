@@ -8,7 +8,7 @@ const MovieCard = ({ movie, deleteMovie, like, dislike }) => {
         <h2>{movie.title}</h2>
       </div>
       <button className="remove-button" onClick={() => deleteMovie(movie.id)}>
-        delete
+        ✖︎
       </button>
 
       <LikeDislike
