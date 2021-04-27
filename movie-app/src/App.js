@@ -15,7 +15,7 @@ function App() {
       <header className="App-header">
         <h1>Movies !</h1>
       </header>
-      {moviesRequest ? <MovieList movies={moviesRequest} /> : null}
+      {moviesRequest ? <MovieList moviesRequest={moviesRequest} /> : null}
     </div>
   );
 }

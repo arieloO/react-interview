@@ -3,10 +3,7 @@ import { useReducer, useState } from "react";
 import MovieCard from "./MovieCard";
 import Filters from "./Filters";
 
-// const deleteMovie = (array, id) => {
-//     return array.filter((d) => d.id !== id);
-// };
-
+// Reducer
 function reducer(state, action) {
   switch (action.type) {
     case "DELETE":
@@ -31,18 +28,13 @@ function reducer(state, action) {
   }
 }
 
-const MovieList = ({ movies }) => {
-  const [state, dispatch] = useReducer(reducer, movies);
+const MovieList = ({ moviesRequest }) => {
+  const [state, dispatch] = useReducer(reducer, moviesRequest);
 
-  // Delete movie
+  // Dispatch
   const deleteMovie = (id) => dispatch({ type: "DELETE", id: id });
-
-  // Like
   const like = (id) => dispatch({ type: "LIKE", id: id });
   const dislike = (id) => dispatch({ type: "DISLIKE", id: id });
-
-  // filter state
-  const [filters, setFilters] = useState([]);
 
   // filter categories
   const categories = state.reduce((acc = [], movie) => {
@@ -52,6 +44,18 @@ const MovieList = ({ movies }) => {
     return acc;
   }, []);
 
+  // filter state
+  const [filters, setFilters] = useState([]);
+
+  // all movies
+  const movies = [...state];
+
+  // filtered movies
+  const filteredMovies =
+    filters.length > 0
+      ? movies.filter((movie) => filters.includes(movie.category))
+      : movies;
+
   return (
     <div>
       <Filters
@@ -60,7 +64,7 @@ const MovieList = ({ movies }) => {
         setFilters={setFilters}
       />
       <div className="movie-grid">
-        {state.map((movie, index) => {
+        {filteredMovies.map((movie, index) => {
           return (
             <MovieCard
               movie={movie}

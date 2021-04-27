@@ -22,6 +22,25 @@ body {
   margin-bottom: 12px;
 }
 
+/* FILTERS */
+
+.filters {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filter-checkbox {
+  display: inline-block;
+  margin: 24px 8px;
+  padding: 4px 4px;
+  border-radius: 6px;
+  background-color: rgba(92, 92, 92, 0.322);
+}
+
+.checked {
+  background-color: rgba(85, 172, 58, 0.308);
+}
+
 /* MOVIE CARD */
 
 .movie-card {
