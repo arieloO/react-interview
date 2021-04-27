@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState, useMemo } from "react";
 
 import MovieCard from "./MovieCard";
 import Filters from "./Filters";
@@ -28,6 +28,14 @@ function reducer(state, action) {
   }
 }
 
+const filterMovies = (movies, filters) => {
+  if (filters.length > 0) {
+    movies.filter((movie) => filters.includes(movie.category));
+  } else {
+    return movies;
+  }
+};
+
 const MovieList = ({ moviesRequest }) => {
   const [state, dispatch] = useReducer(reducer, moviesRequest);
 
@@ -37,31 +45,49 @@ const MovieList = ({ moviesRequest }) => {
   const dislike = (id) => dispatch({ type: "DISLIKE", id: id });
 
   // filter categories
-  const categories = state.reduce((acc = [], movie) => {
-    if (!acc.includes(movie.category)) {
-      acc.push(movie.category);
-    }
-    return acc;
-  }, []);
+  const categories = useMemo(() => {
+    return state.reduce((acc = [], movie) => {
+      if (!acc.includes(movie.category)) {
+        acc.push(movie.category);
+      }
+      return acc;
+    }, []);
+  }, [state]);
 
   // filter state
-  const [filters, setFilters] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   // all movies
   const movies = [...state];
 
   // filtered movies
   const filteredMovies =
-    filters.length > 0
-      ? movies.filter((movie) => filters.includes(movie.category))
+    selectedCategories.length > 0
+      ? movies.filter((movie) => selectedCategories.includes(movie.category))
       : movies;
+
+  useEffect(() => {
+    //  handle when selectedCategory includes deleted category
+    setSelectedCategories((selected) => {
+      console.log(selected, categories);
+      return selected.filter((category) => {
+        console.log(category, categories.includes(category));
+        return categories.includes(category);
+      });
+    });
+  }, [categories]);
+
+  console.log("state", state);
+  console.log("categories:", categories);
+
+  console.log("selectedCategories:", selectedCategories);
 
   return (
     <div>
       <Filters
         categories={categories}
-        filters={filters}
-        setFilters={setFilters}
+        selectedCategories={selectedCategories}
+        setSelectedCategories={setSelectedCategories}
       />
       <div className="movie-grid">
         {filteredMovies.map((movie, index) => {

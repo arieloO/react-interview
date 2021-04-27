@@ -1,8 +1,8 @@
 import Checkbox from "./Checkbox";
 
-const Filters = ({ categories, filters, setFilters }) => {
+const Filters = ({ categories, selectedCategories, setSelectedCategories }) => {
   const handleCheckbox = (value) => {
-    setFilters((filters) => {
+    setSelectedCategories((filters) => {
       if (filters.includes(value)) {
         return filters.filter((filter) => filter !== value);
       } else {
@@ -18,7 +18,7 @@ const Filters = ({ categories, filters, setFilters }) => {
           <Checkbox
             key={category}
             category={category}
-            filters={filters}
+            selectedCategories={selectedCategories}
             handleCheckbox={handleCheckbox}
           />
         );
