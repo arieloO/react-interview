@@ -167,6 +167,7 @@ meter {
   background-color: rgba(106, 198, 115, 0.486);
   border: none;
   border-radius: 20%;
+  cursor: pointer;
 }
 
 .dislike-button {
@@ -175,6 +176,9 @@ meter {
 
 .like-button:hover {
   animation: grow 0.3s ease-in-out;
+}
+.like-button:disabled {
+  cursor: auto;
 }
 
 @keyframes grow {

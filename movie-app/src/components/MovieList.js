@@ -81,7 +81,6 @@ const MovieList = ({ moviesRequest }) => {
   const lastPage = Math.ceil((filteredMovies.length + 1) / itemsPage);
 
   //   items per page side effect
-
   useEffect(() => {
     setPage(1);
   }, [itemsPage]);
