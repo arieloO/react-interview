@@ -2,6 +2,7 @@ import { useEffect, useReducer, useState, useMemo } from "react";
 
 import MovieCard from "./MovieCard";
 import Filters from "./Filters";
+import NoMovies from "./NoMovies";
 
 // Reducer
 function reducer(state, action) {
@@ -28,13 +29,13 @@ function reducer(state, action) {
   }
 }
 
-const filterMovies = (movies, filters) => {
-  if (filters.length > 0) {
-    movies.filter((movie) => filters.includes(movie.category));
-  } else {
-    return movies;
-  }
-};
+// const filterMovies = (movies, filters) => {
+//   if (filters.length > 0) {
+//     movies.filter((movie) => filters.includes(movie.category));
+//   } else {
+//     return movies;
+//   }
+// };
 
 const MovieList = ({ moviesRequest }) => {
   const [state, dispatch] = useReducer(reducer, moviesRequest);
@@ -75,32 +76,37 @@ const MovieList = ({ moviesRequest }) => {
     });
   }, [categories]);
 
-  return (
-    <div>
-      <Filters
-        categories={categories}
-        selectedCategories={selectedCategories}
-        setSelectedCategories={setSelectedCategories}
-      />
-      <div className="movie-grid">
-        {filteredMovies.map((movie, index) => {
-          return (
-            <MovieCard
-              movie={movie}
-              index={index}
-              key={movie.id}
-              deleteMovie={deleteMovie}
-              like={like}
-              dislike={dislike}
-            />
-          );
-        })}
-        <div className="movie-card-fill"></div>
-        <div className="movie-card-fill"></div>
-        <div className="movie-card-fill"></div>
+  if (filteredMovies.length < 1) {
+    return <NoMovies />;
+  } else {
+    return (
+      <div>
+        <Filters
+          categories={categories}
+          selectedCategories={selectedCategories}
+          setSelectedCategories={setSelectedCategories}
+        />
+        <div className="movie-grid">
+          {filteredMovies.map((movie, index) => {
+            return (
+              <MovieCard
+                movie={movie}
+                index={index}
+                key={movie.id}
+                deleteMovie={deleteMovie}
+                like={like}
+                dislike={dislike}
+              />
+            );
+          })}
+
+          <div className="movie-card-fill"></div>
+          <div className="movie-card-fill"></div>
+          <div className="movie-card-fill"></div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default MovieList;

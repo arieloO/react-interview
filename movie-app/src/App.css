@@ -121,3 +121,20 @@ meter {
     transform: scale(1.2);
   }
 }
+
+/* NO MOVIES PAGE */
+
+.no-movie-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.resfresh-button {
+  font-size: 2em;
+  border: 2px solid rgb(75, 75, 75);
+  border-radius: 6px;
+  color: white;
+  background-color: rgba(106, 198, 115, 0.87);
+}
