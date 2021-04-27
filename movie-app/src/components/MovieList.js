@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useState, useMemo } from "react";
 
 import MovieCard from "./MovieCard";
-import Filters from "./Filters";
+import NavOptions from "./NavOptions";
 import NoMovies from "./NoMovies";
 
 // Reducer
@@ -28,14 +28,6 @@ function reducer(state, action) {
       throw new Error();
   }
 }
-
-// const filterMovies = (movies, filters) => {
-//   if (filters.length > 0) {
-//     movies.filter((movie) => filters.includes(movie.category));
-//   } else {
-//     return movies;
-//   }
-// };
 
 const MovieList = ({ moviesRequest }) => {
   const [state, dispatch] = useReducer(reducer, moviesRequest);
@@ -76,18 +68,36 @@ const MovieList = ({ moviesRequest }) => {
     });
   }, [categories]);
 
+  //   pagination
+  const [itemsPage, setItemsPage] = useState(8);
+  const [page, setPage] = useState(1);
+  const slice = [itemsPage * page - itemsPage, itemsPage * page];
+
+  //   current page movies
+  const currentPageMovies = filteredMovies.slice(...slice);
+
+  // RETURN
   if (filteredMovies.length < 1) {
     return <NoMovies />;
   } else {
     return (
       <div>
-        <Filters
+        <NavOptions
           categories={categories}
           selectedCategories={selectedCategories}
           setSelectedCategories={setSelectedCategories}
+          itemsPage={itemsPage}
+          setItemsPage={setItemsPage}
         />
+        <button
+          className="page-button"
+          onClick={() => setPage((page) => (page > 1 ? page - 1 : page))}
+        >
+          ◀︎
+        </button>
+
         <div className="movie-grid">
-          {filteredMovies.map((movie, index) => {
+          {currentPageMovies.map((movie, index) => {
             return (
               <MovieCard
                 movie={movie}
@@ -104,6 +114,18 @@ const MovieList = ({ moviesRequest }) => {
           <div className="movie-card-fill"></div>
           <div className="movie-card-fill"></div>
         </div>
+        <button
+          className="page-button increment-page"
+          onClick={() =>
+            setPage((page) =>
+              page === Math.ceil((filteredMovies.length + 1) / itemsPage)
+                ? page
+                : page + 1
+            )
+          }
+        >
+          ◀︎
+        </button>
       </div>
     );
   }
