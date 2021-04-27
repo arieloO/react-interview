@@ -34,10 +34,12 @@ body {
   margin: 24px 8px;
   padding: 4px 4px;
   border-radius: 6px;
+  border: 1px solid rgb(172, 71, 58);
   background-color: rgba(92, 92, 92, 0.322);
 }
 
 .checked {
+  border: 1px solid rgb(85, 172, 58);
   background-color: rgba(85, 172, 58, 0.308);
 }
 
@@ -50,13 +52,12 @@ body {
   padding: 12px;
   background-color: black;
   border-radius: 4px;
-  box-shadow: 0px 0px 1px 1px rgb(75, 75, 75),
-    2px 2px 2px rgba(104, 104, 104, 0.541);
+  box-shadow: 0px 0px 2px 1px rgb(75, 75, 75), 4px 6px 6px rgb(8, 8, 8);
 }
 
 .movie-card-fill {
   flex: 1 0 15rem;
-  margin: 6px;
+  margin: 12px;
   padding: 12px;
 }
 
@@ -75,7 +76,6 @@ body {
   top: -8px;
   right: -8px;
   padding: 4px;
-  /* margin: 2px; */
   border-radius: 6px;
   border: 1px solid rgba(203, 56, 55);
   color: white;
