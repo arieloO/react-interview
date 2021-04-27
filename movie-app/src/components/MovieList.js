@@ -2,6 +2,7 @@ import { useEffect, useReducer, useState, useMemo } from "react";
 
 import MovieCard from "./MovieCard";
 import NavOptions from "./NavOptions";
+import PageNavButton from "./PageNavButton";
 import NoMovies from "./NoMovies";
 
 // Reducer
@@ -76,6 +77,15 @@ const MovieList = ({ moviesRequest }) => {
   const slice = [itemsPage * page - itemsPage, itemsPage * page];
   const currentPageMovies = filteredMovies.slice(...slice);
 
+  //   last page
+  const lastPage = Math.ceil((filteredMovies.length + 1) / itemsPage);
+
+  //   items per page side effect
+
+  useEffect(() => {
+    setPage(1);
+  }, [itemsPage]);
+
   // RETURN
   if (filteredMovies.length < 1) {
     return <NoMovies />;
@@ -89,13 +99,12 @@ const MovieList = ({ moviesRequest }) => {
           itemsPage={itemsPage}
           setItemsPage={setItemsPage}
         />
-        <button
-          className="page-button decrement-page"
-          onClick={() => setPage((page) => (page > 1 ? page - 1 : page))}
-        >
-          ◁
-        </button>
-
+        <PageNavButton
+          type={"decrement"}
+          lastPage={lastPage}
+          setPage={setPage}
+          hide={page === 1}
+        />
         <div className="movie-grid">
           {currentPageMovies.map((movie, index) => {
             return (
@@ -114,18 +123,12 @@ const MovieList = ({ moviesRequest }) => {
           <div className="movie-card-fill"></div>
           <div className="movie-card-fill"></div>
         </div>
-        <button
-          className="page-button increment-page"
-          onClick={() =>
-            setPage((page) =>
-              page === Math.ceil((filteredMovies.length + 1) / itemsPage)
-                ? page
-                : page + 1
-            )
-          }
-        >
-          ◁
-        </button>
+        <PageNavButton
+          type={"increment"}
+          lastPage={lastPage}
+          setPage={setPage}
+          hide={page === lastPage}
+        />
       </div>
     );
   }
