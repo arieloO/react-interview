@@ -15,11 +15,30 @@ body {
 }
 
 .movie-grid {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: wrap;
   margin-bottom: 12px;
+}
+
+/* NAV OPTIONS */
+
+.nav-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-checkbox {
+  display: inline-block;
+  margin: 24px 8px;
+  padding: 4px 4px;
+  width: 18px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid rgb(143, 143, 143);
+  background-color: rgba(92, 92, 92, 0.322);
 }
 
 /* FILTERS */
@@ -28,7 +47,6 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-
 .filter-checkbox {
   display: inline-block;
   margin: 24px 8px;
@@ -41,6 +59,20 @@ body {
 .checked {
   border: 1px solid rgb(85, 172, 58);
   background-color: rgba(85, 172, 58, 0.308);
+}
+
+/* Pagination */
+
+.items-per-page {
+  display: flex;
+}
+
+/* page navigation buttons */
+
+.page-button {
+  border: none;
+  text-align: center;
+  border-radius: 50%;
 }
 
 /* MOVIE CARD */
