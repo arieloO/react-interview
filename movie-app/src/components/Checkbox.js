@@ -6,13 +6,16 @@ const Checkbox = ({ category, filters, handleCheckbox }) => {
     : "filter-checkbox unchecked";
 
   return (
-    <div className={checkboxStyle} key={category}>
-      <input
-        type="checkbox"
-        value={category}
-        onClick={(e) => handleCheckbox(e.target.value)}
-      ></input>
-      <label>{category}</label>
+    <div className={checkboxStyle}>
+      <label>
+        {category}
+        <input
+          hidden
+          type="checkbox"
+          value={category}
+          onClick={(e) => handleCheckbox(e.target.value)}
+        />
+      </label>
     </div>
   );
 };

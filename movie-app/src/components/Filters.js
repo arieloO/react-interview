@@ -16,6 +16,7 @@ const Filters = ({ categories, filters, setFilters }) => {
       {categories.map((category) => {
         return (
           <Checkbox
+            key={category}
             category={category}
             filters={filters}
             handleCheckbox={handleCheckbox}
