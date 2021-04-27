@@ -1,3 +1,8 @@
+body {
+  background-color: rgb(21, 21, 21);
+  color: white;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -22,10 +27,12 @@
 .movie-card {
   position: relative;
   flex: 1 0 15rem;
-  margin: 6px;
+  margin: 12px;
   padding: 12px;
-  border: 1px solid black;
+  background-color: black;
   border-radius: 4px;
+  box-shadow: 0px 0px 1px 1px rgb(75, 75, 75),
+    2px 2px 2px rgba(104, 104, 104, 0.541);
 }
 
 .movie-card-fill {
@@ -38,14 +45,19 @@
 
 .remove-button {
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 2px;
-  margin: 2px;
-  border-radius: 3px;
-  border: 1px solid black;
+  text-align: center;
+  top: -8px;
+  right: -8px;
+  padding: 4px;
+  /* margin: 2px; */
+  border-radius: 6px;
+  border: 1px solid rgba(203, 56, 55);
   color: white;
-  background-color: tomato;
+  background-color: rgba(203, 56, 55);
+}
+
+.remove-button:hover {
+  border: 1px solid rgb(175, 175, 175);
 }
 
 /* LIKE / DISLIKE */
@@ -59,4 +71,27 @@
 
 meter {
   width: 100%;
+}
+
+.like-button {
+  background-color: rgba(106, 198, 115, 0.486);
+  border: none;
+  border-radius: 20%;
+}
+
+.dislike-button {
+  background-color: rgba(255, 99, 71, 0.514);
+}
+
+.like-button:hover {
+  animation: grow 0.3s ease-in-out;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
 }

@@ -2,10 +2,17 @@ const LikeDislike = ({ likes, dislikes, id, like, dislike }) => {
   return (
     <div className="like-dislike">
       <meter min="0" max={likes + dislikes} value={likes}></meter>
-      <button onClick={() => like(id)}>like</button>
+      <button className="like-button" onClick={() => like(id)}>
+        👍
+      </button>
       <div>{likes}</div>
       <div>{dislikes}</div>
-      <button onClick={() => dislike(id)}>dislike</button>
+      <button
+        className="like-button dislike-button"
+        onClick={() => dislike(id)}
+      >
+        👎
+      </button>
     </div>
   );
 };
