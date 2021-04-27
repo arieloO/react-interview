@@ -71,9 +71,9 @@ const MovieList = ({ moviesRequest }) => {
   //   pagination
   const [itemsPage, setItemsPage] = useState(8);
   const [page, setPage] = useState(1);
-  const slice = [itemsPage * page - itemsPage, itemsPage * page];
 
   //   current page movies
+  const slice = [itemsPage * page - itemsPage, itemsPage * page];
   const currentPageMovies = filteredMovies.slice(...slice);
 
   // RETURN
@@ -90,10 +90,10 @@ const MovieList = ({ moviesRequest }) => {
           setItemsPage={setItemsPage}
         />
         <button
-          className="page-button"
+          className="page-button decrement-page"
           onClick={() => setPage((page) => (page > 1 ? page - 1 : page))}
         >
-          ◀︎
+          ◁
         </button>
 
         <div className="movie-grid">
@@ -124,7 +124,7 @@ const MovieList = ({ moviesRequest }) => {
             )
           }
         >
-          ◀︎
+          ◁
         </button>
       </div>
     );
