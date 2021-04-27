@@ -161,6 +161,7 @@ button:focus {
 
 meter {
   width: 100%;
+  height: 24px;
 }
 
 .like-button {
