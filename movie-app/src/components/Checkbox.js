@@ -1,5 +1,5 @@
-const Checkbox = ({ category, filters, handleCheckbox }) => {
-  const checked = filters.includes(category);
+const Checkbox = ({ category, selectedCategories, handleCheckbox }) => {
+  const checked = selectedCategories.includes(category);
 
   const checkboxStyle = checked
     ? "filter-checkbox checked"

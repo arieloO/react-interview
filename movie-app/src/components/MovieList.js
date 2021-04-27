@@ -44,7 +44,8 @@ const MovieList = ({ moviesRequest }) => {
   const like = (id) => dispatch({ type: "LIKE", id: id });
   const dislike = (id) => dispatch({ type: "DISLIKE", id: id });
 
-  // filter categories
+  // filter categories array
+  //    useMemo prevents useEffect re-render, by memoizing the array
   const categories = useMemo(() => {
     return state.reduce((acc = [], movie) => {
       if (!acc.includes(movie.category)) {
@@ -66,21 +67,13 @@ const MovieList = ({ moviesRequest }) => {
       ? movies.filter((movie) => selectedCategories.includes(movie.category))
       : movies;
 
+  //  handle when selectedCategory includes deleted category
   useEffect(() => {
-    //  handle when selectedCategory includes deleted category
     setSelectedCategories((selected) => {
-      console.log(selected, categories);
-      return selected.filter((category) => {
-        console.log(category, categories.includes(category));
-        return categories.includes(category);
-      });
+      // returns all selected categories still included in categories
+      return selected.filter((category) => categories.includes(category));
     });
   }, [categories]);
-
-  console.log("state", state);
-  console.log("categories:", categories);
-
-  console.log("selectedCategories:", selectedCategories);
 
   return (
     <div>
