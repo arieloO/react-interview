@@ -86,9 +86,12 @@ const MovieList = ({ moviesRequest }) => {
   }, [itemsPage]);
 
   // RETURN
+
+  //   return NoMovies if no movies left
   if (filteredMovies.length < 1) {
     return <NoMovies />;
   } else {
+    //   return moviecards & navigation
     return (
       <div>
         <NavOptions
