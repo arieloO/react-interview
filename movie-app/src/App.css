@@ -203,6 +203,11 @@ meter {
 }
 .like-button:disabled {
   cursor: auto;
+  animation: none;
+}
+
+.like-button:disabled:hover {
+  animation: none;
 }
 
 @keyframes grow {

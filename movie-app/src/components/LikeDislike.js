@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LikeSvg from "./LikeSvg.js";
+import LikeButton from "./LikeButton.js";
 
 const LikeDislike = ({ likes, dislikes, id, like, dislike }) => {
   // todo : block multiple votes
@@ -8,27 +8,23 @@ const LikeDislike = ({ likes, dislikes, id, like, dislike }) => {
   return (
     <div className="like-dislike">
       <meter min="0" max={likes + dislikes} value={likes}></meter>
-      <button
-        className="like-button"
+      <LikeButton
+        id={id}
+        addVote={like}
+        thumb={"up"}
+        voted={false}
         disabled={voted}
-        onClick={() => {
-          like(id);
-          setVoted(true);
-        }}
-      >
-        <LikeSvg />
-      </button>
+        setVoted={setVoted}
+      />
       <div>{likes + " / " + dislikes}</div>
-      <button
-        className="like-button dislike-button"
+      <LikeButton
+        id={id}
+        addVote={dislike}
+        thumb={"down"}
+        voted={false}
         disabled={voted}
-        onClick={() => {
-          dislike(id);
-          setVoted(true);
-        }}
-      >
-        <LikeSvg />
-      </button>
+        setVoted={setVoted}
+      />
     </div>
   );
 };
