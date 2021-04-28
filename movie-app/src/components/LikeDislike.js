@@ -1,4 +1,5 @@
 import { useState } from "react";
+import LikeSvg from "./LikeSvg.js";
 
 const LikeDislike = ({ likes, dislikes, id, like, dislike }) => {
   // todo : block multiple votes
@@ -15,7 +16,7 @@ const LikeDislike = ({ likes, dislikes, id, like, dislike }) => {
           setVoted(true);
         }}
       >
-        👍
+        <LikeSvg />
       </button>
       <div>{likes + " / " + dislikes}</div>
       <button
@@ -26,7 +27,7 @@ const LikeDislike = ({ likes, dislikes, id, like, dislike }) => {
           setVoted(true);
         }}
       >
-        👎
+        <LikeSvg />
       </button>
     </div>
   );

@@ -181,14 +181,21 @@ meter {
 }
 
 .like-button {
-  background-color: rgba(106, 198, 115, 0.486);
+  background-color: transparent;
   border: none;
   border-radius: 20%;
   cursor: pointer;
 }
 
-.dislike-button {
-  background-color: rgba(255, 99, 71, 0.514);
+.like-button svg {
+  fill: rgba(85, 172, 58, 0.3);
+  stroke: rgb(85, 172, 58);
+}
+
+.dislike-button svg {
+  fill: rgba(255, 99, 71, 0.3);
+  stroke: rgb(219, 45, 22);
+  transform: rotate(180deg);
 }
 
 .like-button:hover {
