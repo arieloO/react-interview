@@ -1,19 +1,24 @@
-const PageOption = ({ value, itemsPage, setItemsPage }) => {
-  const checked = value === itemsPage;
+import { useEffect } from "react";
 
+const PageOption = ({ value, itemsPage, setItemsPage }) => {
+  // test if current value is selected to generate style
+  const checked = value === itemsPage;
   const checkboxStyle = checked
-    ? "page-checkbox checked"
-    : "page-checkbox unchecked";
+    ? "page-checkbox checked-page"
+    : "page-checkbox ";
 
   return (
-    <div className={checkboxStyle}>
+    <div className="page-checkbox-div">
       <label>
-        {value}
+        <div className={checkboxStyle}>{value}</div>
         <input
           hidden
           type="checkbox"
           value={value}
-          onClick={(e) => setItemsPage(e.target.value)}
+          onClick={(e) => {
+            console.log("CLICK :", e.target.value);
+            setItemsPage(parseInt(e.target.value));
+          }}
         />
       </label>
     </div>
