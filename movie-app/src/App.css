@@ -174,11 +174,31 @@ button:focus {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+/* LIKE GAUGE */
 
 meter {
   width: 100%;
   height: 24px;
 }
+
+.gauge-div {
+  width: 100%;
+  height: 12px;
+  padding: 0;
+  margin: 12px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: rgb(41, 8, 4);
+}
+
+.like-gauge {
+  transform-origin: 0;
+  height: 100%;
+  border-radius: 12px 0 0 12px;
+  background-color: rgb(28, 121, 0);
+}
+
+/* LIKE DISLIKE BUTTONS */
 
 .like-button {
   background-color: transparent;
@@ -195,7 +215,7 @@ meter {
 .dislike-button svg {
   fill: rgba(255, 99, 71, 0.3);
   stroke: rgb(219, 45, 22);
-  transform: rotate(180deg);
+  transform: rotateX(180deg);
 }
 
 .like-button:hover {
