@@ -201,10 +201,20 @@ meter {
 /* LIKE DISLIKE BUTTONS */
 
 .like-button {
+  display: flex;
+  align-items: center;
   background-color: transparent;
-  border: none;
-  border-radius: 20%;
   cursor: pointer;
+  border: none;
+  margin: 4px 0;
+  border-bottom: 2px solid;
+}
+
+.like-button:hover {
+  border-color: rgb(85, 172, 58);
+}
+.dislike-button:hover {
+  border-color: rgb(219, 45, 22);
 }
 
 .like-button svg {
@@ -218,7 +228,15 @@ meter {
   transform: rotateX(180deg);
 }
 
-.like-button:hover {
+.like-button div {
+  margin: 0 6px;
+  color: rgb(85, 172, 58);
+}
+.dislike-button div {
+  color: rgb(219, 45, 22);
+}
+
+.like-button svg:hover {
   animation: grow 0.3s ease-in-out;
 }
 .like-button:disabled {
@@ -226,7 +244,7 @@ meter {
   animation: none;
 }
 
-.like-button:disabled:hover {
+.like-button:disabled svg:hover {
   animation: none;
 }
 

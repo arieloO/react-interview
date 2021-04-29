@@ -8,7 +8,6 @@ const LikeGauge = ({ likes, dislikes }) => {
         className="like-gauge"
         style={{ transform: `scaleX(${likePercentage / 2})` }}
       ></div>
-      {/* <div>{likes + " / " + dislikes}</div> */}
     </div>
   );
 };

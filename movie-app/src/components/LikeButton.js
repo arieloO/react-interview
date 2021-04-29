@@ -1,13 +1,20 @@
 import LikeSvg from "./LikeSvg.js";
 
-const LikeDislike = ({ id, addVote, thumb, setVoted, disabled }) => {
+const LikeDislike = ({
+  id,
+  addVote,
+  thumb,
+  numberOfVotes,
+  disabled,
+  setHasVoted,
+}) => {
   const style = `${
     thumb === "up" ? "like-button" : "like-button dislike-button"
   }`;
 
   const handleClick = () => {
     addVote(id);
-    setVoted(true);
+    setHasVoted(true);
   };
 
   return (
@@ -17,6 +24,7 @@ const LikeDislike = ({ id, addVote, thumb, setVoted, disabled }) => {
       onClick={(e) => handleClick()}
     >
       <LikeSvg />
+      <div>{numberOfVotes}</div>
     </button>
   );
 };

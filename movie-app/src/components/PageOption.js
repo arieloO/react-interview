@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 const PageOption = ({ value, itemsPage, setItemsPage }) => {
   // test if current value is selected to generate style
   const checked = value === itemsPage;
