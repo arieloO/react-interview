@@ -1,16 +1,15 @@
 # Run the project
 
-## In the `movie-app` folder :
+In the `movie-app` folder :
 
 ### Run `npm install` then `npm start`
+
+### to see the final & improved version I worked on after the time limit go to the [final-polish branch](https://github.com/arieloO/react-interview/tree/final-polish).
 
 # Tools
 
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 - Custom CSS (no framework).
-
-## to see the final & improved version I worked on after the time limit go to the [final-polish branch](https://github.com/arieloO/react-interview/tree/final-polish).
 
 # react-interview consignes :
 
