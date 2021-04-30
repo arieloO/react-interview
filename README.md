@@ -4,7 +4,7 @@ In the `movie-app` folder :
 
 ### Run `npm install` then `npm start`
 
-### To see the improved version I worked on after the time limit go to [final-polish branch](https://github.com/arieloO/react-interview/tree/final-polish).
+### To see the improved version I worked on after the time limit visit my [final-polish](https://github.com/arieloO/react-interview/tree/final-polish) branch.
 
 # Tools
 
