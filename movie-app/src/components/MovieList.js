@@ -83,7 +83,7 @@ const MovieList = ({ moviesRequest }) => {
   //   items per page side effect
   useEffect(() => {
     setPage(1);
-  }, [itemsPage]);
+  }, [itemsPage, selectedCategories]);
 
   // RETURN
 

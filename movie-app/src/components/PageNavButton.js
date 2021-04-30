@@ -1,3 +1,5 @@
+import PageNavSvg from "./PageNavSvg";
+
 const PageNavButton = ({ type, lastPage, setPage, hide }) => {
   // generate style
   const buttonStyle = `page-button ${type}-page`;
@@ -17,7 +19,7 @@ const PageNavButton = ({ type, lastPage, setPage, hide }) => {
       hidden={hide}
       onClick={() => handlePageChange()}
     >
-      ◁
+      <PageNavSvg type={type} />
     </button>
   );
 };
